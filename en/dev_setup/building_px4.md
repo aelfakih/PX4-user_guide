@@ -28,13 +28,23 @@ If needed you can also [get the source code specific to a particular release](..
 
 ## First Build (Using the jMAVSim Simulator)
 
-First we'll build a simulated target using a console environment.
-This allows us to validate the system setup before moving on to real hardware and an IDE.
+First configure PX4-Autopilot to run on your hardware. We'll build a simulated target using a console environment. This allows us to validate the system setup before moving on to real hardware and an IDE.
+PX4_Autopilot ships with three setup scripts stored under./PX4-Autopilot/Tools/setup/**SYSTEM**.sh, where the supported **SYSTEM**s are:
+* **Ubuntu**: ./PX4-Autopilot/Tools/setup/**ubuntu**.sh
+* **MacOS**: ./PX4-Autopilot/Tools/setup/**macos**.sh
+* **Arch Linux**:  ./PX4-Autopilot/Tools/setup/**arch**.sh
 
-Navigate into the **PX4-Autopilot** directory and start [jMAVSim](../sim_jmavsim/README.md) using the following command:
-
+*To build PX4 on an **Ubuntu** system, use the following command:*
 ```sh
-make px4_sitl jmavsim
+cd ./PX4-Autopilot/Tools/setup
+./ubuntu.sh
+```
+Once the build is complete, **jMASVsim** will start and the PX4 console is ready for commands.  
+To learn about **jMASVsim**, open ./PX4-Autopilot/Tools/simulation/jmavsim/jMAVSim/README.md
+
+To start PX4 after the initial start:
+```sh
+./PX4-Autopilot/build/px4_sitl_default/bin/px4
 ```
 
 This will bring up the PX4 console below:
